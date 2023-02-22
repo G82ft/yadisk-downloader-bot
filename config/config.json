@@ -1,0 +1,8 @@
+{
+    "log_level": "DEBUG",
+    "workers": 1,
+    "volume_size": 50000000,
+    "buffer_size": 1000,
+    "db_path": "data/stats.db",
+    "server_path": "."
+}

@@ -128,12 +128,15 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Config and cache
-config.json
-cache.json
+# Tokens and cache
+config/tokens.json
+data/cache.json
 
 # Logs
 logs/
 
 # Temp folder for downloading
 temp/
+
+# User data (aiogram FSM storage) and data about downloads
+data/
