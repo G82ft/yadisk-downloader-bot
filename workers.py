@@ -167,9 +167,11 @@ class Workers:
                 self.BUF_SIZE
             )
 
+        files: list[str] = self._send_files(user_id, files)
+
         self.cache[hash_key] = {
             "time": YDResource(public_key).get_modified(path),
-            "files": self._send_files(user_id, files)
+            "files": files
         }
 
         return size

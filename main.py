@@ -41,7 +41,8 @@ Thread(
         f'{config.pop("server_path", "./telegram-bot-api")} '
         f'--api-id={tokens.get("tg_api-id")} '
         f'--api-hash={tokens.get("tg_api-hash")}',
-    )
+    ),
+    daemon=True
 ).start()
 
 wrk = Workers(**config)

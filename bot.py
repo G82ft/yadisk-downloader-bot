@@ -529,6 +529,8 @@ class YDBot:
                     parse_mode='Markdown'
                 )
 
+            await self.dp.current_state(user=user_id).set_state('idle')
+
             return file_ids
 
         return run_coroutine_threadsafe(

@@ -1,4 +1,5 @@
 import logging
+import time
 from logging.handlers import TimedRotatingFileHandler
 from math import ceil
 from threading import Lock
@@ -108,7 +109,11 @@ class YDResource:
         return files
 
     def get_modified(self, path: str) -> int:
-        data: dict = self._fetch_metadata(self.public_key, path)
+        # TODO: Do sth with "429 DiskResourceDownloadLimitExceededError"
+        try:
+            data: dict = self._fetch_metadata(self.public_key, path)
+        except requests.HTTPError:
+            return ceil(time.time())
 
         return ceil(
             mktime(
