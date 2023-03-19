@@ -95,6 +95,7 @@ class Workers:
         while not self._stop.is_set():
             try:
                 user_id, public_key, path = self.requests.get_nowait()
+                time.sleep(5)
             except queue.Empty:
                 continue
 

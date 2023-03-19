@@ -3,6 +3,7 @@ import os
 from json import load, JSONDecodeError
 from queue import Queue
 from threading import Thread
+from time import sleep
 
 try:
     with open(f'config{os.sep}config.json') as f:
@@ -35,15 +36,20 @@ config.update(
     }
 )
 
+command: str = (
+    f'{config.pop("server_path", "./telegram-bot-api")} '
+    f'--api-id={tokens.get("tg_api-id")} '
+    f'--api-hash={tokens.get("tg_api-hash")}'
+)
+print(command)
+
 Thread(
     target=os.system,
-    args=(
-        f'{config.pop("server_path", "./telegram-bot-api")} '
-        f'--api-id={tokens.get("tg_api-id")} '
-        f'--api-hash={tokens.get("tg_api-hash")}',
-    ),
+    args=(command,),
     daemon=True
-).start()
+)
+
+sleep(10)
 
 wrk = Workers(**config)
 wrk.start()
