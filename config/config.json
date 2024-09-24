@@ -4,5 +4,5 @@
     "volume_size": 50000000,
     "buffer_size": 1000,
     "db_path": "data/stats.db",
-    "server_path": "."
+    "server_path": "/telegram-bot-api/bin/telegram-bot-api"
 }

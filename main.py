@@ -47,7 +47,7 @@ Thread(
     target=os.system,
     args=(command,),
     daemon=True
-)
+).start()
 
 sleep(10)
 

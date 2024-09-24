@@ -48,7 +48,7 @@ class Workers:
         connection.cursor().execute(
             """
             CREATE TABLE IF NOT EXISTS Statistics(
-                ID INT PRIMARY KEY AUTOINCREMENT,
+                ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 PublicKey TEXT,
                 Path TEXT,
                 Size INT,
