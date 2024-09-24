@@ -18,4 +18,4 @@ COPY --from=0 / /
 
 RUN pip install -r requirements.txt
 
-ENTRYPOINT /bin/ash
+ENTRYPOINT ["python", "main.py"]
